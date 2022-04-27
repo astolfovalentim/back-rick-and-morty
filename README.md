@@ -1,7 +1,6 @@
 #
+
 # Projeto Back Rick and Morty
-
-
 
 ---
 
@@ -10,17 +9,15 @@ A linguagem utilizada é o JavaScript e as tecnologias são NodeJs, Express e Mo
 
 Os critérios de avaliação são:
 
-- Endpoints (Somando 2 pontos):
+- Endpoints (Somando 8 pontos):
 
-  - [GET] Leitura de todas os personagens (1.6 pontos);
-  - [GET] Leitura de personagens individuais (por ID) (0,4 pontos).
-  - [POST] Criação de personagens (0,4 pontos);
-  - [PUT] Edição de personagens por ID (0,4 pontos);
-  - [DELETE] Exclusão de personagens por ID (0,4 pontos).
+  - [GET] Leitura de todas os personagens (1,6 pontos);
+  - [GET] Leitura de personagens individuais (por ID) (1,6 pontos);
+  - [POST] Criação de personagens (1,6 pontos);
+  - [PUT] Edição de personagens por ID (1,6 pontos);
+  - [DELETE] Exclusão de personagens por ID (1,6 pontos).
 
-- Requisitos do projeto (somando 8 pontos):
+- Requisitos do projeto (somando 2 pontos):
 
-  - Padrão MVC aplicado corretamente (2 pontos);
-  - Persistência de dados no MongoDB (2 pontos);
-  - Formatação do código utilizando o Prettier (2 pontos);
-  - CORS - Liberado (2 pontos).
+  - Formatação do código utilizando o Prettier (1 ponto);
+  - Persistência de dados no MongoDB (1 ponto).
