@@ -5,9 +5,9 @@ const findAllCharactersService = async () => {
   return characters;
 };
 
-const findByIdCharacterService = async (idParam) => {
-  const character = await character.findById(idParam);
-  return character;
+const findByIdCharactersService = async (idParam) => {
+  const oneCharacter = await character.findById(idParam);
+  return oneCharacter;
 };
 
 const createCharactersService = async (newCharacter) => {
@@ -29,7 +29,7 @@ const deleteCharactersService = async (idParam) => {
 
 module.exports = {
   findAllCharactersService,
-  findByIdCharacterService,
+  findByIdCharactersService,
   createCharactersService,
   updateCharactersService,
   deleteCharactersService,
