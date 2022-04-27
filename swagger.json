@@ -1,29 +1,29 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API El Geladon",
-    "description": "API para CRUD de paletas mexicanas e carrinho de compras",
+    "title": "API Rick and Morty",
+    "description": "API para CRUD das personagens da Série Rick and Morty",
     "termsOfService": "",
     "contact": {
-      "email": "tlima@blueedtech.com.br"
+      "email": "contato@astolfovalentim.com"
     },
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://localhost:3000/cats",
+      "url": "http://localhost:3000/characters",
       "description": "API de teste"
     },
     {
-      "url": "https://mod3-rick-morty.herokuapp.com/cats/api-docs/",
+      "url": "https://mod3-rick-morty.herokuapp.com/characters",
       "description": "API de produção"
     }
   ],
   "paths": {
-    "/all-cats": {
+    "/characters": {
       "get": {
-        "summary": "Lista de todas as paletas",
-        "description": "Rota responsável por listar todas as paletas",
+        "summary": "Buscar todas as personagens",
+        "description": "Rota responsável por por buscar todas as personagens",
         "tags": ["Paletas"],
         "responses": {
           "404": {
