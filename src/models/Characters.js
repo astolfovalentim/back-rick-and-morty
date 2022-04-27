@@ -5,7 +5,7 @@ const charactersSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  image: {
+  imagem: {
     type: String,
     require: true,
   },
