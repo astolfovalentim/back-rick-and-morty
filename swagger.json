@@ -11,12 +11,12 @@
   },
   "servers": [
     {
-      "url": "https://mod3-back-rickandmorty.onrender.com/characters",
+      "url": "https://mod3-back-rickandmorty.onrender.com",
       "description": "API de produção Render"
     },
 
     {
-      "url": "http://localhost:3000/characters",
+      "url": "http://localhost:3000",
       "description": "API de teste"
     }
   ],
