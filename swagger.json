@@ -117,16 +117,16 @@
         }
       }
     },
-    "/update-cat/{id}": {
+    "/characters/update/{id}": {
       "put": {
-        "summary": "Editar uma paleta pelo ID",
-        "description": "Rota responsável por editar uma paleta pelo ID",
-        "tags": ["Paletas"],
+        "summary": "Editar uma personagem pelo ID",
+        "description": "Rota responsável por editar uma personagem pelo ID",
+        "tags": ["Characters"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id da paleta para a busca",
+            "description": "Id da personagem para a busca",
             "required": true
           }
         ],
@@ -134,15 +134,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Paletas"
+                "$ref": "#/components/schemas/Characters"
               },
               "examples": {
                 "Paletas": {
                   "value": {
-                    "sabor": "Limão Editado",
-                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                    "foto": "./assets/images/limao.png",
-                    "preco": 7
+                    "name": "Beth Smith EDITADO",
+                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
                   }
                 }
               }
@@ -159,7 +157,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Paletas"
+                  "$ref": "#/components/schemas/Characters"
                 }
               }
             }
@@ -167,107 +165,19 @@
         }
       }
     },
-    "/delete-cat/{id}": {
+    "/characters/delete/{id}": {
       "delete": {
-        "summary": "Apagar uma paleta pelo ID",
-        "description": "Rota responsável por apagar uma paleta pelo ID",
-        "tags": ["Paletas"],
+        "summary": "Apagar uma personagem pelo ID",
+        "description": "Rota responsável por apagar uma personagem pelo ID",
+        "tags": ["Characters"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id da paleta para deleção",
+            "description": "Id da personagem para deleção",
             "required": true
           }
         ],
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/all-carrinho": {
-      "get": {
-        "summary": "Lista de todos os itens do carrinho",
-        "description": "Rota responsável por listar todos os itens do carrinho",
-        "tags": ["Carrinho"],
-        "responses": {
-          "404": {
-            "description": "Not Found"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Carrinho"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/create-carrinho": {
-      "post": {
-        "summary": "Cadastrar vários itens no carrinho",
-        "description": "Rota responsável por cadastrar vários itens no carrinho",
-        "tags": ["Carrinho"],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Carrinho"
-              },
-              "examples": {
-                "Carrinho": {
-                  "value": [
-                    {
-                      "paletaId": "624230fdcd38269205c82197",
-                      "quantidade": 5
-                    },
-                    {
-                      "paletaId": "62423c1e618f4a4738a5ee75",
-                      "quantidade": 2
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Carrinho"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/finish-carrinho": {
-      "delete": {
-        "summary": "Apagar todos os itens do carrinho",
-        "description": "Rota responsável por apagar todos os itens do carrinho",
-        "tags": ["Carrinho"],
         "responses": {
           "400": {
             "description": "Bad Request"
