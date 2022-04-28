@@ -11,12 +11,17 @@
   },
   "servers": [
     {
+      "url": "https://mod3-back-rickandmorty.onrender.com/characters",
+      "description": "API de produção Render"
+    },
+
+    {
       "url": "http://localhost:3000/characters",
       "description": "API de teste"
     },
     {
       "url": "https://mod3-rick-morty.herokuapp.com/characters",
-      "description": "API de produção"
+      "description": "API de produção Heroku"
     }
   ],
   "paths": {
