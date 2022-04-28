@@ -317,7 +317,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Character"
+                  "$ref": "#/components/schemas/Characters"
                 }
               }
             }
