@@ -18,10 +18,6 @@
     {
       "url": "http://localhost:3000/characters",
       "description": "API de teste"
-    },
-    {
-      "url": "https://mod3-rick-morty.herokuapp.com/characters",
-      "description": "API de produção Heroku"
     }
   ],
   "paths": {
@@ -29,7 +25,7 @@
       "get": {
         "summary": "Buscar todas as personagens",
         "description": "Rota responsável por por buscar todas as personagens",
-        "tags": ["Paletas"],
+        "tags": ["Characters"],
         "responses": {
           "404": {
             "description": "Not Found"
@@ -41,7 +37,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paletas"
+                    "$ref": "#/components/schemas/Characters"
                   }
                 }
               }
@@ -50,16 +46,16 @@
         }
       }
     },
-    "/cat/{id}": {
+    "/characters/find/{id}": {
       "get": {
-        "summary": "Busca uma paleta pelo ID",
-        "description": "Rota responsável por buscar uma paleta pelo ID",
-        "tags": ["Paletas"],
+        "summary": "Busca uma personagem pelo ID",
+        "description": "Rota responsável por buscar uma personagem pelo ID",
+        "tags": ["Characters"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id da paleta para a busca",
+            "description": "Id da personagem para a busca",
             "required": true
           }
         ],
@@ -73,7 +69,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Paletas"
+                  "$ref": "#/components/schemas/Characters"
                 }
               }
             }
@@ -81,24 +77,22 @@
         }
       }
     },
-    "/create-cat": {
+    "/characters/create": {
       "post": {
-        "summary": "Cadastrar uma paleta",
-        "description": "Rota responsável por cadastrar uma paleta",
-        "tags": ["Paletas"],
+        "summary": "Cadastrar uma personagem",
+        "description": "Rota responsável por cadastrar uma personagem",
+        "tags": ["Characters"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Paletas"
+                "$ref": "#/components/schemas/Characters"
               },
               "examples": {
                 "Paletas": {
                   "value": {
-                    "sabor": "Maracuja",
-                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                    "foto": "./assets/images/maracuja.png",
-                    "preco": 4
+                    "name": "Beth Smith",
+                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
                   }
                 }
               }
@@ -115,7 +109,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Paletas"
+                  "$ref": "#/components/schemas/Characters"
                 }
               }
             }
@@ -287,31 +281,14 @@
   },
   "components": {
     "schemas": {
-      "Paletas": {
+      "Characters": {
         "type": "object",
         "properties": {
-          "sabor": {
+          "name": {
             "type": "string"
           },
-          "descricao": {
+          "imagem": {
             "type": "string"
-          },
-          "foto": {
-            "type": "string"
-          },
-          "preco": {
-            "type": "number"
-          }
-        }
-      },
-      "Carrinho": {
-        "type": "object",
-        "properties": {
-          "paletaId": {
-            "type": "string"
-          },
-          "quantidade": {
-            "type": "number"
           }
         }
       }
