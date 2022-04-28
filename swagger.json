@@ -21,6 +21,151 @@
     }
   ],
   "paths": {
+    "/users/create": {
+      "post": {
+        "summary": "Criar um novo usuário",
+        "description": "Rota responsável por criar um novo usuário",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "Users": {
+                  "value": {
+                    "name": "Tony Stark",
+                    "username": "ironman",
+                    "email": "tonystarkironman@gmail.com",
+                    "password": "123456",
+                    "photo": "https://sc04.alicdn.com/kf/H5b0183557cec4043946f03208a7a29dat.jpg"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemma": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "summary": "Buscar todos os usuários",
+        "description": "Rota responsável por buscar todos os usuários",
+        "tags": ["Users"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Entrar na API do Rick and Morty",
+        "description": "Rota responsável fazer o login de um user cadastrado",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "User": {
+                  "value": {
+                    "email": "showmancode@gmail.com",
+                    "password": "12345"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/characters/create": {
+      "post": {
+        "summary": "Cadastrar uma personagem",
+        "description": "Rota responsável por cadastrar uma personagem",
+        "tags": ["Characters"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Characters"
+              },
+              "examples": {
+                "Characters": {
+                  "value": {
+                    "name": "Beth Smith",
+                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Characters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/characters": {
       "get": {
         "summary": "Buscar todas as personagens",
@@ -77,46 +222,7 @@
         }
       }
     },
-    "/characters/create": {
-      "post": {
-        "summary": "Cadastrar uma personagem",
-        "description": "Rota responsável por cadastrar uma personagem",
-        "tags": ["Characters"],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Characters"
-              },
-              "examples": {
-                "Paletas": {
-                  "value": {
-                    "name": "Beth Smith",
-                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/Characters"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+
     "/characters/update/{id}": {
       "put": {
         "summary": "Editar uma personagem pelo ID",
@@ -137,7 +243,7 @@
                 "$ref": "#/components/schemas/Characters"
               },
               "examples": {
-                "Paletas": {
+                "Characters": {
                   "value": {
                     "name": "Beth Smith EDITADO",
                     "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
@@ -189,8 +295,74 @@
       }
     }
   },
+  "/characters/search": {
+    "get": {
+      "summary": "Buscar personagem por nome",
+      "description": "Rota responsável por buscar os personagens que correspondem ao nome enviado via query params",
+      "tags": ["Characters"],
+
+      "parameters": [
+        {
+          "in": "query",
+          "name": "name",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "404": {
+          "description": "Not Found"
+        }
+      }
+    }
+  },
+
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+
     "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "string"
+          }
+        }
+      },
       "Characters": {
         "type": "object",
         "properties": {
