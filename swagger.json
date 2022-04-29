@@ -141,7 +141,7 @@
                 "Characters": {
                   "value": {
                     "name": "Beth Smith",
-                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
+                    "imageUrl": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
                   }
                 }
               }
@@ -246,7 +246,7 @@
                 "Characters": {
                   "value": {
                     "name": "Beth Smith EDITADO",
-                    "imagem": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
+                    "imageUrl": "https://rickandmortyapi.com/api/character/avatar/39.jpeg"
                   }
                 }
               }
@@ -331,7 +331,7 @@
           "name": {
             "type": "string"
           },
-          "imagem": {
+          "imageUrl": {
             "type": "string"
           }
         }
