@@ -5,7 +5,7 @@ const charactersSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  imagem: {
+  imageUrl: {
     type: String,
     require: true,
   },
