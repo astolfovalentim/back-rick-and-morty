@@ -295,44 +295,6 @@
       }
     }
   },
-  "/characters/search": {
-    "get": {
-      "summary": "Buscar personagem por nome",
-      "description": "Rota responsável por buscar os personagens que correspondem ao nome enviado via query params",
-      "tags": ["Characters"],
-
-      "parameters": [
-        {
-          "in": "query",
-          "name": "name",
-          "type": "string",
-          "required": true
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Characters"
-                }
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized"
-        },
-        "404": {
-          "description": "Not Found"
-        }
-      }
-    }
-  },
-
   "components": {
     "securitySchemes": {
       "bearerAuth": {
