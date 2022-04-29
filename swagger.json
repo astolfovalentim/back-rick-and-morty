@@ -35,10 +35,10 @@
               "examples": {
                 "Users": {
                   "value": {
-                    "name": "Tony Stark",
-                    "username": "ironman",
-                    "email": "tonystarkironman@gmail.com",
-                    "password": "123456",
+                    "name": "new Tony Stark",
+                    "username": "newironman",
+                    "email": "newtonystarkironman@gmail.com",
+                    "password": "new123456",
                     "photo": "https://sc04.alicdn.com/kf/H5b0183557cec4043946f03208a7a29dat.jpg"
                   }
                 }
