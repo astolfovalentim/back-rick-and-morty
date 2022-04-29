@@ -16,7 +16,7 @@
     },
 
     {
-      "url": "http://localhost:3000",
+      "url": "http://localhost:3001",
       "description": "API de teste"
     }
   ],
@@ -108,8 +108,8 @@
               "examples": {
                 "User": {
                   "value": {
-                    "email": "showmancode@gmail.com",
-                    "password": "12345"
+                    "email": "tonystarkironman@gmail.com",
+                    "password": "123456"
                   }
                 }
               }
