@@ -295,15 +295,15 @@
       }
     },
     "/characters/search/{name}": {
-      "search": {
+      "get": {
         "summary": "Procurar uma personagem pelo nome",
         "description": "Rota responsável por procurar uma personagem pelo nome",
         "tags": ["Characters"],
         "parameters": [
           {
-            "name": "id",
+            "name": "name",
             "in": "path",
-            "description": "Id da personagem para localização",
+            "description": "Nome da personagem para localização",
             "required": true
           }
         ],
