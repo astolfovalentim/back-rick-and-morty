@@ -293,6 +293,29 @@
           }
         }
       }
+    },
+    "/characters/search/{name}": {
+      "search": {
+        "summary": "Procurar uma personagem pelo nome",
+        "description": "Rota responsável por procurar uma personagem pelo nome",
+        "tags": ["Characters"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da personagem para localização",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

@@ -27,10 +27,15 @@ const deleteCharactersService = async (idParam) => {
   return await character.findByIdAndDelete(idParam);
 };
 
+const findNameCharactersService = async (name) => {
+  return await character.find({ name: { $regex: name } });
+};
+
 module.exports = {
   findAllCharactersService,
   findByIdCharactersService,
   createCharactersService,
   updateCharactersService,
   deleteCharactersService,
+  findNameCharactersService,
 };

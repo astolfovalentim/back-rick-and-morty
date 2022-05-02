@@ -34,10 +34,6 @@ route.delete(
   controllerCharacters.deleteCharactersController,
 );
 
-/* route.get(
-  '/characters/search',
-  validObjectBody,
-  controllerCharacters.findByIdCharactersController,
-); */
+route.get('/characters/search/:name', controllerCharacters.searchController);
 
 module.exports = route;
