@@ -13,6 +13,7 @@ route.get('/api-docs', swaggerUi.setup(swaggerDocument));
 route.get('/characters', controllerCharacters.findAllCharactersController);
 route.get(
   '/characters/find/:id',
+  validId,
   controllerCharacters.findByIdCharactersController,
 );
 
